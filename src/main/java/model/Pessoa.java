@@ -1,5 +1,6 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -22,7 +23,7 @@ import org.hibernate.validator.constraints.br.CPF;
             columnNames = {"codigo","cpf","nomeUsuario","email"}
     )})
 
-public class Pessoa {
+public class Pessoa implements Serializable {
 
     @Id
     @GeneratedValue(generator = "pessoa_gerador", strategy = GenerationType.SEQUENCE)

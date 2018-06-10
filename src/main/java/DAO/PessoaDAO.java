@@ -5,7 +5,6 @@ import java.util.List;
 
 import model.Pessoa;
 import java.sql.SQLException;
-import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 
 public class PessoaDAO extends SuperDAO {
