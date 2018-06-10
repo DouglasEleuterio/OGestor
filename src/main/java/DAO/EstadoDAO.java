@@ -9,13 +9,14 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import model.Estado;
 import model.Pessoa;
+import model.Regioes;
 
 /**
  *
  * @author douglas
  */
-public class EstadoDAO extends SuperDAO{
-    
+public class EstadoDAO extends SuperDAO {
+
     public void salvar(Estado estado) throws SQLException, DBException {
         EntityManager em = super.getConetion();
         em.getTransaction().begin();
@@ -47,6 +48,11 @@ public class EstadoDAO extends SuperDAO{
         return estado;
     }
 
+    public List<Estado> consultarEstadosPorRegiao(Regioes regioes) {
+        return em.createQuery("SELECT e from Estado as e WHERE e.regiao =:regiao")
+                .setParameter("regiao", regioes).getResultList();
+    }
+
     public Estado buscarEstadoPorUF(String uf) {
         return em.createQuery("SELECT p from Estado p WHERE p.uf = :uf", Estado.class)
                 .setParameter("uf", uf).getSingleResult();
@@ -58,9 +64,10 @@ public class EstadoDAO extends SuperDAO{
     }
 
     /**
-     * Implementar a busca de  Estado por Região.
+     * Implementar a busca de Estado por Região.
+     *
      * @param email
-     * @return 
+     * @return
      */
     public Pessoa buscarPessoaPorEmail(String email) {
         return em.createQuery("SELECT p from Pessoa p WHERE p.email = :email", Pessoa.class)

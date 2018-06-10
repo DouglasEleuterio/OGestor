@@ -8,6 +8,8 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -32,6 +34,8 @@ public class Estado implements Serializable {
     @Column(nullable = false, unique = true)
     private String uf;
 
+    @Enumerated(EnumType.STRING)
+    private Regioes regiao;
     
     /*
      * Getters and Setters
@@ -59,6 +63,12 @@ public class Estado implements Serializable {
     public void setUf(String uf) {
         this.uf = uf;
     }
-    
-     
+
+    public Regioes getRegiao() {
+        return regiao;
+    }
+
+    public void setRegiao(Regioes regiao) {
+        this.regiao = regiao;
+    }
 }

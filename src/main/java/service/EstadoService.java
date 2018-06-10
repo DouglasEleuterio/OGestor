@@ -7,6 +7,7 @@ import Util.DBException;
 import model.Pessoa;
 import java.sql.SQLException;
 import model.Estado;
+import model.Regioes;
 
 public class EstadoService {
 
@@ -18,6 +19,10 @@ public class EstadoService {
 
     public List<Estado> ConsultarTodos() {
         return estadoDAO.consultarTodos();
+    }
+    
+    public List<Estado> ConsultarPorRegiao(Regioes regioes) {
+        return estadoDAO.consultarEstadosPorRegiao(regioes);
     }
 
     public void alterar(Estado estado) {
@@ -33,7 +38,6 @@ public class EstadoService {
         Estado estado = new Estado();
         estado = estadoDAO.buscarEstadoPorUF(uf);
         return estado;
-
     }
 
     public Estado buscarEstadoPorNome(String nome) {
