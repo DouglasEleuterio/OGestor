@@ -18,6 +18,7 @@ public class SuperDAO implements Closeable {
                         = Persistence.createEntityManagerFactory("OGestorPU");
                 em = factory.createEntityManager();
             } catch (Exception ex) {
+                System.out.println(ex.getCause());
                 throw new DBException("Falha ao conectar com o banco de dados", ex);
             }
         }

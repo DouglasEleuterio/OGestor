@@ -8,22 +8,27 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Endereco implements Serializable {
-    
+
     @Id
-    @GeneratedValue(generator = "pessoa_gerador", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "pessoa_gerador", sequenceName = "sequencia_pessoa", allocationSize = 1)
+    @GeneratedValue(generator = "endereco_gerador", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "endereco_gerador", sequenceName = "sequencia_endereco", allocationSize = 1)
     private long codigo;
-    
+
     @Enumerated(EnumType.STRING)
     private LogradouroTipo logradouroTipo;
-    
+
     private String logradouro;
     private String numero;
     private String complemento;
+
+    @ManyToOne
+    @JoinColumn(name = "id_cidade", nullable = false)
     private Cidade cidade;
 
     public long getCodigo() {

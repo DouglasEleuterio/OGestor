@@ -23,7 +23,7 @@ public class InserirCidadeTest {
 
     @Test
     public void realizarTeste() throws SQLException, DBException {
-        salvarCidade("Sao Paulo", "SP");
+        salvarCidade("Goiania", "GO");
     }
 
     public static void salvarCidade(String nome, String uf) throws SQLException, DBException {

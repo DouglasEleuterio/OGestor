@@ -6,6 +6,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -15,6 +16,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 /**
@@ -23,7 +25,7 @@ import javax.persistence.SequenceGenerator;
  */
 @Entity
 public class Cidade implements Serializable {
-    
+
     @Id
     @GeneratedValue(generator = "cidade_gerador", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "cidade_gerador", sequenceName = "sequencia_cidade", allocationSize = 1)
@@ -32,10 +34,13 @@ public class Cidade implements Serializable {
     @Basic(optional = false)
     @Column(nullable = false, unique = true)
     private String nome;
-    
+
     @ManyToOne
-    @JoinColumn(name = "id_estado",nullable = false)
+    @JoinColumn(name = "id_estado", nullable = false)
     private Estado estado;
+
+    @OneToMany(mappedBy = "cidade", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Endereco> enderecos;
 
     public long getCodigo() {
         return codigo;
@@ -60,6 +65,5 @@ public class Cidade implements Serializable {
     public void setEstado(Estado estado) {
         this.estado = estado;
     }
-    
-    
+
 }
