@@ -5,11 +5,10 @@
  */
 package br.com.douglas.teste.Estado;
 
-import DAO.EstadoDAO;
 import Util.DBException;
 import java.sql.SQLException;
 import model.Estado;
-import model.Regioes;
+import model.ENUMs.Regioes;
 import org.junit.Test;
 import service.EstadoService;
 
@@ -24,9 +23,9 @@ public class InserirEstadoTest {
     
     @Test
     public void salvarEstado() throws SQLException, DBException {
-        estado.setNome("SAO PAULO");
-        estado.setUf("SP");
-        estado.setRegiao(Regioes.SUDESTE);
+        estado.setNome("GOIAS");
+        estado.setUf("GO");
+        estado.setRegiao(Regioes.CENTRO_OESTE);
         service.salvar(estado);
 
     }

@@ -9,7 +9,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import model.Estado;
 import model.Pessoa;
-import model.Regioes;
+import model.ENUMs.Regioes;
 
 /**
  *

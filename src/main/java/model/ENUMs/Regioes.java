@@ -1,7 +1,7 @@
 /*
  * Enum com as Regiões do Brasil
  */
-package model;
+package model.ENUMs;
 
 /**
  *

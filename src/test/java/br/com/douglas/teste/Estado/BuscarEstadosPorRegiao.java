@@ -2,7 +2,7 @@ package br.com.douglas.teste.Estado;
 
 import java.util.List;
 import model.Estado;
-import model.Regioes;
+import model.ENUMs.Regioes;
 import org.junit.Test;
 import service.EstadoService;
 

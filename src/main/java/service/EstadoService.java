@@ -7,7 +7,7 @@ import Util.DBException;
 import model.Pessoa;
 import java.sql.SQLException;
 import model.Estado;
-import model.Regioes;
+import model.ENUMs.Regioes;
 
 public class EstadoService {
 
@@ -44,7 +44,11 @@ public class EstadoService {
         Estado estado = new Estado();
         estado = estadoDAO.buscarEstadoPorNome(nome);
         return estado;
-
     }
-
+    
+    public void deletarEstado(String uf){
+        Estado estado = new Estado();
+        estado = buscarEstadoPorUF(uf);
+        estadoDAO.deletar(estado);
+    }
 }
