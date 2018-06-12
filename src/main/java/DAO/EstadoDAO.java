@@ -43,6 +43,9 @@ public class EstadoDAO extends SuperDAO {
         em.close();
     }
 
+//    Inserido ramificacao teste
+    //Inserido ramificacao teste2
+    
     public Estado buscaEstadoPorCodigo(Estado estado, Long id) {
         estado = em.find(Estado.class, id);
         return estado;
